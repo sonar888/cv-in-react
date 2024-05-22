@@ -10,18 +10,18 @@ export default [
         "openForWok": true
         
     },
-    // {
-    //     "id": 2,
-    //     "name":"Darryl Doe", 
-    //     "job":"cook", 
-    //     "url": "lekker.com",
-    //     "email" : "darryl@muffins.com",
-    //     "about" : "le gras c'est la vie",
-    //     "interests" : "Pineapple pizza",
-    //     "openForWok": false
+    {
+        "id": 2,
+        "name":"Darryl Doe", 
+        "job":"cook", 
+        "url": "lekker.com",
+        "email" : "darryl@muffins.com",
+        "about" : "le gras c'est la vie",
+        "interests" : "Pineapple pizza",
+        "openForWok": false
         
 
-    // }
+    }
     
 ]
 

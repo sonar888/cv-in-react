@@ -22,30 +22,63 @@ import Stack from 'react-bootstrap/Stack';
 function App() {
 
   const [userInformation, setUserInformation ] = React.useState(Data)
-  const [showForm, setShowForm] = React.useState(true)
+  const [showForm, setShowForm] = React.useState(false)
 
   function handleSubmit (data) {
+    const index = userInformation.length
     setUserInformation([
       ...userInformation, {
-        ...data
+        ...data,
+        id : index+1
       }
 
     ])
 
-    setShowForm(false)    
+    setShowForm(false) 
+    // console.log(userInformation)   
     
 }
 
-console.log(userInformation)
+function handleDelete (id) {
+  setUserInformation (prevUserInformation => {
+    return prevUserInformation.filter(item => item.id !== id)
+  })
+
+  console.log(userInformation)
+
+  userInformation.length === 1 ? setShowForm(true) : setShowForm(false) 
+  // for some reason the array still keeps 1 item event though everything is deleted on screen. this is why the userInformation.length === 1 instead of 0
+  
+
+}
+
 
  
   return (
     <>
 
-    {showForm? <Form 
-        userInformation={userInformation}
-        handleClick={handleSubmit}
-        /> : <Info/> }
+      {showForm? 
+        <Form 
+          userInformation={userInformation}
+          handleClick={handleSubmit}
+          key = {userInformation}
+          
+        /> 
+          
+        : 
+        
+        <Info
+          userInformation={userInformation}
+          key = {userInformation}
+          handleDelete={handleDelete}
+
+        
+        
+        /> 
+      }
+  
+
+   
     
       
         
