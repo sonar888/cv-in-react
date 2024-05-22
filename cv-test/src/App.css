@@ -1,5 +1,7 @@
 .container {
-  background-color: #23252C;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 25px;
   width: 317px; 
   height: 780px;
   margin: 0;
@@ -8,6 +10,51 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  /* border: solid black; */
+  height: 700px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+
+}
+
+input{
+  
+  height: 40px;
+}
+textarea {
+  
+  height: 120px;
+}
+
+.form--field {
+  width: 275px;
+  border: 2px solid #000000;
+  border-radius: 15px;
+  /* margin: auto */
+
+}
+
+.container--checkbox {
+  display: flex;
+  flex-direction: row;
+  border: solid 2px black;
+  align-items: baseline;
+  justify-content: center;
+  width: 275px;
+
+}
+
+.form--button {
+  
+}
+
 
 .width {
   width: 317px;
@@ -21,12 +68,7 @@
   height: 317px;
 }
 
-/* .card-container {
-  display: flex;
-  flex-direction: vertical;
-  justify-content: center;
-  align-content: space-between;
-} */
+
 
 .card-title {
   color: white;
@@ -56,9 +98,7 @@
   gap: 8px;
   margin-top: 25px;
   margin-bottom: 25px;
-  /* text-align: center;
-  margin-left: auto;
-  margin-right: auto; */
+
 
 }
 
@@ -85,10 +125,10 @@ h2 {
 
 
 
-p {
+/* p {
   color: white;
   font-size: 10px ;
-} 
+}  */
 
 .footer {
   width: 317px;
@@ -107,8 +147,6 @@ p {
   height: 25px;
 
 }
-
-
 
 
 

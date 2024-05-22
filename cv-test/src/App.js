@@ -1,10 +1,13 @@
 // import logo from './logo.svg';
 import './App.css';
 
+import React from "react"
+
 import Image from './components/Image';
-import Interests from './components/Interests';
 import Footer from './components/Footer';
-import About from './components/About';
+import Info from './components/Info';
+import Form from './components/Form';
+import Data from './library/data'
 
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -17,14 +20,42 @@ import Stack from 'react-bootstrap/Stack';
 
 
 function App() {
-  return (
+
+  const [userInformation, setUserInformation ] = React.useState(Data)
+  const [showForm, setShowForm] = React.useState(true)
+
+  function handleSubmit (data) {
+    setUserInformation([
+      ...userInformation, {
+        ...data
+      }
+
+    ])
+
+    setShowForm(false)    
     
-      <Container  className='container'>
-        <Image/>
-        <About/>
-       
-        <Footer/>
-      </Container>
+}
+
+console.log(userInformation)
+
+ 
+  return (
+    <>
+
+    {showForm? <Form 
+        userInformation={userInformation}
+        handleClick={handleSubmit}
+        /> : <Info/> }
+    
+      
+        
+        
+        
+        
+      
+
+      </>
+
    
   );
 }

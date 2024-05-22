@@ -10,16 +10,16 @@ export default function Footer (){
         
         <Row className='footer'>
           
-          <img src='https://i.imgur.com/QIrZWGIs.jpg' alt='Twitter' className='footer-image'/>
+          <img src={require ("../images/Twitter Icon.png")} alt='Twitter' className='footer-image'/>
       
           
-          <img src='https://i.imgur.com/QIrZWGIs.jpg' alt='Facebook' className='footer-image'/>
+          <img src={require ("../images/Facebook Icon.png")}  alt='Facebook' className='footer-image'/>
           
        
-          <img src='https://i.imgur.com/QIrZWGIs.jpg' alt='Instagram' className='footer-image'/>
+          <img src={require ("../images/Instagram Icon.png")}  alt='Instagram' className='footer-image'/>
          
         
-          <img src='https://i.imgur.com/QIrZWGIs.jpg' alt='GitHub' className='footer-image'/>
+          <img src={require ("../images/GitHub Icon.png")}  alt='GitHub' className='footer-image'/>
          
         </Row>
       
