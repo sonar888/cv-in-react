@@ -22,22 +22,44 @@ import Stack from 'react-bootstrap/Stack';
 function App() {
 
   const [userInformation, setUserInformation ] = React.useState(Data)
-  const [showForm, setShowForm] = React.useState(false)
+  const [showForm, setShowForm] = React.useState(true)
+
+  // localStorage.clear()
+
 
   function handleSubmit (data) {
     const index = userInformation.length
+    const source = localStorage.getItem('image')
+    console.log(data)
     setUserInformation([
       ...userInformation, {
         ...data,
-        id : index+1
+        id : index+1,
+        src: source
+        
+        
       }
 
     ])
 
     setShowForm(false) 
-    // console.log(userInformation)   
+      
+
     
 }
+
+  // function handleSubmit ( data) {
+  //   setUserInformation (prevUserInformation => {
+  //     return {
+  //       ...prevUserInformation,
+  //       {}
+  //     }
+  //   })
+
+    
+     
+    
+
 
 function handleDelete (id) {
   setUserInformation (prevUserInformation => {
@@ -52,7 +74,7 @@ function handleDelete (id) {
 
 }
 
-
+console.log(userInformation)
  
   return (
     <>
@@ -60,7 +82,7 @@ function handleDelete (id) {
       {showForm? 
         <Form 
           userInformation={userInformation}
-          handleClick={handleSubmit}
+          handleSubmit={handleSubmit}
           key = {userInformation}
           
         /> 

@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "./Image";
+// import Image from "./Image";
 import Footer from "./Footer";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -19,12 +19,20 @@ export default function Info (props) {
 
     
 
+    
+
     const dataElements = props.userInformation.map(item => {
+
+      
         return (
 
             <div key={item.id}> 
                 <Card  className="width card-height height card-container"> 
-                    <Image/>
+
+                
+                <div className="width">
+                    <img variant="top" src={item.src} alt="Italian Trulli" className="card-image"/>
+                </div>
                     <Card.Body>
                         <Card.Title className="card-title ">{item.name}</Card.Title>
                         <Card.Subtitle className="card-subtitle1">{item.job}</Card.Subtitle>

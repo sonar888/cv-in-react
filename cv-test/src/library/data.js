@@ -1,3 +1,5 @@
+import image from '../images/profile-pic.png'
+
 export default [
     {
         "id": 1,
@@ -7,7 +9,8 @@ export default [
         "email" : "Laura@kisses.com",
         "about" : "I am a new frontend developer, I hate CSS",
         "interests" : "I love horsies",
-        "openForWok": true
+        "openForWok": true,
+        "src" : "https://i.imgur.com/QIrZWGIs.jpg"
         
     },
     {
@@ -18,6 +21,7 @@ export default [
         "email" : "darryl@muffins.com",
         "about" : "le gras c'est la vie",
         "interests" : "Pineapple pizza",
+        "src" : "https://i.imgur.com/QIrZWGIs.jpg",
         "openForWok": false
         
 
