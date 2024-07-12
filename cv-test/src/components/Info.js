@@ -1,5 +1,6 @@
+// This 
+
 import React from "react";
-// import Image from "./Image";
 import Footer from "./Footer";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -9,17 +10,6 @@ import Container from "react-bootstrap/esm/Container";
 
 
 export default function Info (props) {
-
-    // function handleDelete (id) {
-    //     setUserInformation (prevUserInformation => {
-    //       return prevUserInformation.filter(item => item.id !== id)
-    //     })
-      
-    //   }
-
-    
-
-    
 
     const dataElements = props.userInformation.map(item => {
 

@@ -1,12 +1,13 @@
+// This is the form page: it displays the form, handles the form input and sends the information up to App.js where the the state is set. It uses props from App.js
+
 import React, { useState } from "react";
-// import Button from 'react-bootstrap/Button';
+
+
 
 
 export default function Form (props) {
 
-    
-    const [image, setImage] = React.useState({})
-    const [formInput, setformInput] = React.useState({
+    const [formInput, setformInput] = React.useState({ // This is an object with the information the user can provide
         id:"",
         firstName: "",
         lastName: "",
@@ -20,78 +21,35 @@ export default function Form (props) {
 
  
 
-function handleFile (event) {
-    console.log(event.target.files[0])
-    const reader = new FileReader()
-    
+ // This first function handles the file input in the form. This is handled separately from the other form elements because the file is stored in localStorage.
+ // The reason for LS is because we do not use a backend in this project
 
+function handleFile (event) {
+    const reader = new FileReader() 
     reader.addEventListener('load', ()=>{
-        localStorage.setItem('image',reader.result)
+        localStorage.setItem( props.userInformation.length + 1 ,reader.result) // This line ensures that the key for the LS for the image always atches the id in the userInformation object
     })
     reader.readAsDataURL(event.target.files[0]);
-    // setImage(prevImage => {
-    //     return {
-    //         ...prevImage,
-    //         event.target.files[0]
-    //     }
-
-    // })
+   
     console.log(localStorage)
 
 }
 
     
+// This function handles the input in the form fields and verifies the data with each keystroke.
+function handleChange (event) {
+    const {name, value, type, checked, files, file} = event.target
 
-    function handleChange (event) {
-
-        const {name, value, type, checked, files, file} = event.target
-
-        if (type === file) {
-            console.log("yes")
-            // setImage(files[0])
-
-    //         const reader = new FileReader()
-
-    // // reader.addEventListener((load) => {
-    // //     console.log(reader.result)
-    // // })
-           
-    //         reader.readAsDataURL(image)
-            
-            
-
-        } else {
-            setformInput (prevFormInput => {
-                return {
-                    ...prevFormInput,
-                    [name] : type === "checkbox"? checked :  value
-                }
-            })    
+        setformInput (prevFormInput => {
+            return {
+                ...prevFormInput,
+                [name] : type === "checkbox"? checked :  value
+            }
+        })      
+}
 
 
-        }
-        
-        
-        
-    }
-
-    
-
-    
-
-    // function handleSubmit (event) {
-    //     event.preventDefault()
-
-    //     const formData = new FormData();
-    //     formInput.map (item =>
-    //         formData.append(item, item)
-    //     )
-    //     ;
-    //     // formData.append("text", form.text);
-    //     console.log(formData)
-
-    // }
-
+// What is displayed on the app:
    
     return (
         <form className="form">
@@ -165,13 +123,16 @@ function handleFile (event) {
                 <p>I am open to work</p>
             
             </label>
-            <button className="form--button" onClick={
-                (event) => {event.preventDefault()
-                props.handleSubmit (formInput)
-                
-            }
-            
-            }>Send</button>
+
+            <button className="form--button" 
+                onClick={(event) => {
+                    event.preventDefault()
+                    props.handleSubmit (formInput)} // See App.js for the handleSubmit function
+                    }
+
+            > Send
+                    
+            </button>
             
 
 
